@@ -1,1 +1,6 @@
-
+---
+- hosts: kubernetes_clusters
+  become: yes
+  roles:
+    - common
+    - metallb
