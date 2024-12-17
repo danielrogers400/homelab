@@ -19,7 +19,7 @@
   kubernetes.core.helm:
     name: metallb
     chart_ref: metallb/metallb
-    namespace: "{{ metallb_namespace }}"
+    namespace: "{{ homelab_namespace }}"
     create_namespace: true
 
 - name: Create MetalLB Configuration Template
