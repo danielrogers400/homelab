@@ -1,6 +1,6 @@
 ---
 - name: Ensure Helm is installed
-  kubernetes.core.package:
+  kubernetes.core:
     name: helm
     state: present
 
