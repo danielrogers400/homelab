@@ -1,6 +1,6 @@
 ---
 - name: Ensure Helm is installed
-  kubernetes.core:
+  ansible.builtin.package:
     name: helm
     state: present
 
