@@ -1,8 +1,14 @@
 ---
-- name: Ensure Helm is installed
-  ansible.builtin.package:
-    name: helm
-    state: present
+- name: Verify Helm is installed
+  ansible.builtin.stat:
+    path: /snap/bin/helm
+  register: helm_binary
+  failed_when: not helm_binary.stat.exists
+
+- name: Fail with detailed message if Helm is not installed
+  ansible.builtin.fail:
+    msg: "Helm is not installed. Please install Helm via Snap or another method before running this playbook."
+  when: not helm_binary.stat.exists
 
 - name: Add MetalLB Helm repository
   kubernetes.core.helm_repository:
