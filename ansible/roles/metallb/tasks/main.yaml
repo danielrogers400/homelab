@@ -5,7 +5,7 @@
   register: helm_binary
   failed_when: not helm_binary.stat.exists
 
-– name: Install Helm Diff
+- name: Install Helm Diff
   kubernetes.core.helm_plugin:
     plugin_path: "https://github.com/databus23/helm-diff"
     state: present
