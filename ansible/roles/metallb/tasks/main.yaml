@@ -33,7 +33,7 @@
     dest: /tmp/metallb-crds.yaml
 
 - name: Apply MetalLB CRDs
-  community.kubernetes.k8s:
+  community.core.k8s:
     state: present
     definition: "{{ lookup('file', '/tmp/metallb-crds.yaml') }}"
 
