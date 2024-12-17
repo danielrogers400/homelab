@@ -14,11 +14,7 @@
       - git
       - vim
       - python3-pip
+      - python3-openshift
+      - python3-pyyaml
+      - python3-kubernetes
     state: present
-
-- name: install python libs
-  pip:
-    name:
-      - openshift
-      - pyyaml
-      - kubernetes 
