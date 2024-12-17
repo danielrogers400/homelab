@@ -27,7 +27,8 @@
     namespace: "{{ homelab_namespace }}"
     create_namespace: true
 
-- name: Create MetalLB Configuration Template
-  ansible.builtin.template:
-    src: metallb-config.yml.j2
-    dest: /tmp/metallb-config.yml
+- name: Apply MetalLB Configuration
+  kubernetes.core.k8s:
+    state: present
+    template:
+      path: 'metallb-config.yml.j2'
