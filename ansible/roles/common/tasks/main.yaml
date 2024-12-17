@@ -13,4 +13,12 @@
       - wget
       - git
       - vim
+      - python3-pip
     state: present
+
+- name: install python libs
+  pip:
+    name:
+      - openshift
+      - pyyaml
+      - kubernetes 
