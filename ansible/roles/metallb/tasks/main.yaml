@@ -26,16 +26,8 @@
     chart_ref: metallb/metallb
     namespace: "{{ homelab_namespace }}"
     create_namespace: true
-
-- name: Download MetalLB CRDs
-  ansible.builtin.get_url:
-    url: "https://raw.githubusercontent.com/metallb/metallb/refs/heads/main/charts/metallb/charts/crds/templates/crds.yaml"
-    dest: /tmp/metallb-crds.yaml
-
-- name: Apply MetalLB CRDs
-  kubernetes.core.k8s:
-    state: present
-    definition: "{{ lookup('file', '/tmp/metallb-crds.yaml') }}"
+    values: 
+      - "--include-crds"
 
 - name: Apply MetalLB Configuration
   kubernetes.core.k8s:
