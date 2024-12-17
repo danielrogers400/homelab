@@ -26,8 +26,6 @@
     chart_ref: metallb/metallb
     namespace: "{{ homelab_namespace }}"
     create_namespace: true
-    values: 
-      - "--include-crds"
 
 - name: Apply MetalLB Configuration
   kubernetes.core.k8s:
