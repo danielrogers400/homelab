@@ -1,0 +1,16 @@
+---
+# Common tasks to run on all servers
+- name: Ensure system is up to date
+  ansible.builtin.apt:
+    update_cache: yes
+    upgrade: dist
+  when: ansible_os_family == 'Debian'
+
+- name: Install common utilities
+  ansible.builtin.package:
+    name:
+      - curl
+      - wget
+      - git
+      - vim
+    state: present

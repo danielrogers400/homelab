@@ -1,0 +1,9 @@
+---
+- hosts: kubernetes_clusters
+  become: yes
+  roles:
+    - common
+    # Add other roles as you develop them
+    - kubernetes
+    - metallb
+    # Future roles can be added here

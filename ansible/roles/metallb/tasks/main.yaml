@@ -1,0 +1,22 @@
+---
+- name: Ensure Helm is installed
+  ansible.builtin.package:
+    name: helm
+    state: present
+
+- name: Add MetalLB Helm repository
+  kubernetes.core.helm_repository:
+    name: metallb
+    repo_url: https://metallb.github.io/metallb
+
+- name: Install MetalLB via Helm
+  kubernetes.core.helm:
+    name: metallb
+    chart_ref: metallb/metallb
+    namespace: "{{ metallb_namespace }}"
+    create_namespace: true
+
+- name: Create MetalLB Configuration Template
+  ansible.builtin.template:
+    src: metallb-config.yml.j2
+    dest: /tmp/metallb-config.yml

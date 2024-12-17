@@ -1,0 +1,10 @@
+---
+# Global variables that apply to all hosts
+ansible_python_interpreter: /usr/bin/python3
+
+# Kubernetes and MetalLB specific variables
+metallb_namespace: metallb-system
+metallb_ip_range: 192.168.1.240-192.168.1.250
+
+# Cluster configuration
+k8s_version: v1.27.3

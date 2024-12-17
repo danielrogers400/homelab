@@ -1,0 +1,9 @@
+---
+collections:
+  - kubernetes.core
+  - community.general
+  - ansible.posix
+
+roles:
+  # Community roles can be added here
+  # - geerlingguy.docker
